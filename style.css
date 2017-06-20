@@ -1,6 +1,7 @@
 body {
     background-color: #FFFFFF;
     color: #373737;
+    text-align:center;
     margin: 40px 150px 0;
     font-family: Verdana, Geneva, sans-serif;
 }
@@ -8,7 +9,7 @@ body {
 header {
     padding: 50px;
     background-color: #F4F4F4;
-
+    text-align: center;
     border-radius: 100px;
 
     color: #C0B283;
