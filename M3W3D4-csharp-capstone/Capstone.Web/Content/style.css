@@ -1,0 +1,44 @@
+﻿
+.jumbotron {
+    background-size: cover;
+    padding-top: 70px;
+    background-color: #8b8c40;
+}
+.heading{
+    text-align:center
+}
+
+.flexbox{
+    text-align:center
+}
+.parkDescription{
+    text-align:center;
+}
+
+.parkName{
+    font-size:1.5em;
+    font-weight:bolder;
+    text-align:center;
+}
+.small-forecast div{
+    font-size: .95em;
+}
+img{
+    width:100%;
+}
+.footer{
+    margin-top:100px;
+}
+.description{
+    text-align:left;
+}
+body{
+    
+    background-color:#b1a688;
+    font-weight:bolder;
+    font-size:1.5em;
+}
+h4{
+    font-weight:bolder;
+}
+

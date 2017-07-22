@@ -1,0 +1,12 @@
+public class Chips/Drinks/Candy/Gum: VMItem
+{
+	public Chips(string item, double price) // CONSTRUCTOR
+	{
+		pass back to parent class
+	}
+	
+	public override ToString()
+	{
+		return item sound string
+	}
+}

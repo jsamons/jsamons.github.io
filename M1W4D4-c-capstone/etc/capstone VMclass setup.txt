@@ -1,0 +1,72 @@
+public class VM
+
+public VendingMachine(string filepath) // CONSTRUCTOR (possibility that a list may be necessary)
+{
+while filepath exists (try/catch)
+	{
+	streamreader
+		while
+		{
+			return each line as a string using readline
+			if string[0] = A then chips - split line into slot, name, price
+				- create instance of item and load to dictionary/dictionaries
+			if string[0] = B then candy  - split line into slot, name, price
+				- create instance of item and load to dictionary/dictionaries
+			if string[0] = C then pop  - split line into slot, name, price
+				- create instance of item and load to dictionary/dictionaries
+			if string[0] = D then gum - split line into slot, name, price
+				- create instance of item and load to dictionary/dictionaries
+		}
+	}
+}
+
+public double AmountMoneyFedToMachine // Property
+{
+get; set;
+}
+
+public double DispenseItem(string slotNumber) // METHOD
+{
+remove items from dictionary
+if statement to handle order availibilty
+	if sold out
+	{
+		return amount left from money fed into vm
+	}
+	else
+	{
+		substract from dictionary item value
+		subtract cost of item from money fed into vm
+		return amount left from money fed into vm
+	}
+}
+
+public double DispenseChange(some value)                  // METHOD (maybe not ncessary)
+amount fed into machine - amount paid for items = change
+return change
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

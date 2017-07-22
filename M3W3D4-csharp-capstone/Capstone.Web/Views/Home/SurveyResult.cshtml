@@ -1,0 +1,36 @@
+@using Capstone.Web.Models
+@model List<NationalPark>
+@{
+    ViewBag.Title = "SurveyResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Dictionary<string, int> topParks = Session["TopParks"] as Dictionary<string, int>;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="heading col-sm-12">
+            <h1>Survey Results</h1>
+            <p>(Displaying results for all parks with at least 1 vote)</p>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+@foreach (NationalPark park in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <a href="@Url.Action("Detail", "Home", new { id=park.ParkCode })"><img class="parkImg" src="~/Content/parks/@(park.ParkCode).jpg" /></a>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="@Url.Action("Detail", "Home", new { id=park.ParkCode })"><h2>@park.ParkName</h2></a><span>Number of Votes: @topParks[park.ParkCode]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+}

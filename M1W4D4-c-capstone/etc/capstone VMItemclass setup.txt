@@ -1,0 +1,21 @@
+public class VMItem // SUPERCLASS
+{
+	PIV ITEM
+	PIV PRICE
+	
+	public VMItem (string item, double price) // CONSTRUCTOR
+	{
+		 PIV item
+		 PIV price
+		default quantity = 5
+	}
+	
+	public string Item // PROP
+	{ get;}
+	
+	public double PRICE // PROP
+	{ get;}
+	
+	public int Quantity // Prop
+	{ get; set; }
+}

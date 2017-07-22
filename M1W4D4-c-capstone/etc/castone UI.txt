@@ -1,0 +1,41 @@
+public class UserInterface
+{
+	public UserInterface(TypeVM)
+	{
+		CWL: main menu
+		CRL: enter selection
+		if [1]
+			- for each loop that prints item information (slot, name, price)
+		else if [2]
+			- purchase process menu
+			While making a purchase
+			{
+				while
+				{
+					if[1]
+						CWL: prompt money
+						CRL: add $ amount
+						log transaction type, amount and total
+					if [2]
+						CWL: prompt selection
+						CRL: input selection
+						DO STUFF	(based on item availibility)
+						Log transaction type, amount, total
+					if [3]
+						closes loop
+						return change
+						return item message based on slection
+				}
+			} 
+			 
+		else (3)
+			- thank you exit program
+			
+			
+		
+	}
+
+	public string MainMenu(string) // METHOD
+	{
+	}
+}

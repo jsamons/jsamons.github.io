@@ -1,0 +1,215 @@
+﻿@using Capstone.Web.Models
+@model NationalPark
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Weather> list = ViewBag.WeatherList;
+    string temp = Session["TempUnit"] as string;
+    double celciusConversion = 5.0 / 9.0;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="parkName col-sm-12">@Model.ParkName (@Model.ParkCode)</div>
+    </div>
+    <div class="row parkDescription">
+        <div class="col-md-3"></div>
+        <div class="col-md-3 col-sm-12"><h3>@Model.State</h3></div>
+        <div class="col-md-3 col-sm-12"><h3>Year Founded: @Model.YearFounded</h3></div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-sm-12">
+        <img class="parkImg" src="~/Content/parks/@(Model.ParkCode).jpg" />
+    </div>
+</div>
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="parkDescription col-sm-12">
+
+            <div class="row">
+                <div class="col-sm-3">Elevation in Feet: @Model.ElevationInFeet ft</div>
+                <div class="col-sm-3">Total Acreage: @Model.Acreage acres</div>
+                <div class="col-sm-3">Entry Fee: $@Model.EntryFee</div>
+                <div class="col-sm-3">Nubmer of Animal Species: @Model.NumberOfAnimalSpecies</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">Annual Visitors: @Model.AnnualVisitorCount</div>
+                <div class="col-sm-3">Climate: @Model.Climate</div>
+                <div class="col-sm-3">Miles of Trail: @Model.MilesOfTrail miles</div>
+                <div class="col-sm-3">Number of Campsites: @Model.NumberOfCampsites</div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="description col-sm-12">
+                    "@Model.InspirationalQuote" - <strong>@Model.InspirationalQuoteSource</strong>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="description col-sm-12">
+                    @Model.ParkDescription
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<h1 style="text-align:center">5 Day Forecast</h1>
+<div class="container flexbox">
+    <div class="row">
+        @foreach (Weather weather in list)
+            {
+                if (weather.FiveDayForeCast == 1)
+                {
+                <div class="col-sm-3">
+                    <div class="row"><div class="col-sm-12"><h2>Today</h2></div></div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <img src="~/Content/weather/@(weather.Forecast).png" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        @if (temp == "celcius")
+                        {
+                            <div class="col-sm-6">
+                                <p>
+                                    High: @Math.Round((weather.High - 32) * celciusConversion) C
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                    Low: @Math.Round((weather.Low - 32) * celciusConversion) C
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-sm-6">
+                                <p>
+                                    High: @weather.High F
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                    Low: @weather.Low F
+                                </p>
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @if (weather.forecastMessage.ContainsKey(weather.Forecast))
+                            {
+                                <span>@weather.forecastMessage[weather.Forecast]</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @if (weather.High > 75)
+                            {
+                                <span>Bring an extra gallon of water.</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @if (weather.Low < 20)
+                            {
+                                <span>Be careful in the frigid temperatures.</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @if ((weather.High - weather.Low) > 20)
+                            {
+                                <span>Be sure to wear breathable layers.</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-sm-2 small-forecast">
+                    <div class="row"><div class="col-sm-12"><h2>Day @weather.FiveDayForeCast</h2></div></div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <img src="~/Content/weather/@(weather.Forecast).png" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        @if (temp == "celcius")
+                        {
+                            <div class="col-sm-6">
+                                <p>
+                                    High: @Math.Round((weather.High - 32) * celciusConversion) C
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                    Low: @Math.Round((weather.Low - 32) * celciusConversion) C
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-sm-6">
+                                <p>
+                                   High: @weather.High F
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                   Low: @weather.Low F
+                                </p>
+                            </div>
+                        }
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @if (weather.forecastMessage.ContainsKey(weather.Forecast))
+                                {
+                                    <span>@weather.forecastMessage[weather.Forecast]</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @if (weather.High > 75)
+                                {
+                                    <span>Bring an extra gallon of water.</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @if (weather.Low < 20)
+                                {
+                                    <span>Be careful in the frigid temperatures.</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @if ((weather.High - weather.Low) > 20)
+                                {
+                                    <span>Be sure to wear breathable layers.</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+

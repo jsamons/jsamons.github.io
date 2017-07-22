@@ -1,0 +1,25 @@
+﻿@using Capstone.Web.Models;
+@model List<NationalPark>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (NationalPark park in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <a href="@Url.Action("Detail", "Home", new { id=park.ParkCode })"><img src="~/Content/parks/@(park.ParkCode).jpg" /></a>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <a href="@Url.Action("Detail", "Home", new { id=park.ParkCode })"><h4>@park.ParkName</h4></a>
+                <p>@park.State</p>
+                <p>@park.ParkDescription</p>
+            </div>
+        </div>
+        <br />
+    </div>
+}
+
+
