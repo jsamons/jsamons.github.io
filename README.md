@@ -8,4 +8,4 @@ National Park Resgistration Progam
   - Web application developed with MVC Framework. Used C#, Razor, SQL, HTML, CSS, and Bootstrap for responsive front-end design. Allows the user to view details on multiple parks, check five-day forecast in either Celcius or Farenheit, vote on their favorite park and view voting results.
   
  Exercises
-  - Collection of kata and other exercises completed. 
+  - Collection of kata and other exercises completed or in progress. 
