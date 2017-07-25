@@ -1,5 +1,5 @@
 body {
-    background-color: #FFFFFF;
+    background-color: #F4F4F4;
     color: #373737;
     text-align: center;
     margin: 40px 150px 0;
@@ -8,7 +8,7 @@ body {
 
 header {
     padding: 50px;
-    background-color: #F4F4F4;
+    background-color: #ffffff;
     text-align: center;
     border-radius: 100px;
 
@@ -25,6 +25,12 @@ header h1 {
 header h2 {
     margin-top: 5px;
 }
+
+h3 {
+    color: blue;
+    text-align: center;
+}
+
 
 header div.image-holder {
     height: 50px;
@@ -65,4 +71,12 @@ footer {
     font-family: 'Courier New', monospace;
     font-size: 2em;
     margin-bottom: 0;
+}
+
+.year {
+    float: right;
+}
+
+#address {
+    text-align: center;
 }
